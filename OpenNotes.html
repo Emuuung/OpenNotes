@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Oportun</title>
+
+		<style>
+			* {
+				box-sizing: border-box;
+				font-family: courier new;
+				font-size: 12;
+				margin: auto;
+				margin-bottom: 2px;
+			}
+
+			input[type=text], input[type=number], select, textarea {
+				width: 100%;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				resize: vertical;
+			}
+			input[type=date] {
+				width: 100%;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+			}
+			
+			input[type=checkbox] {
+				display: inline-block;
+			}
+
+			label {
+				
+				display: inline-block;
+			}
+
+			button {
+				background-color: #4CAF50;
+				color: white;
+				padding: 12px 20px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				float: left;
+			}
+
+			button:hover {
+				background-color: #45a049;
+			}
+
+			.container {
+				border-radius: 5px;
+				background-color: #f2f2f2;
+				padding: 10px;
+			}
+
+			.col01 {
+				float: left;
+				width: 25%;
+				text-align: right;
+				padding-right: 6;
+			}
+
+			.col02 {
+				float: left;
+				width: 75%;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+		</style>
+</head>
+<body>
+		<h2>Oportun
+		<h3>Llamada Entrante (Inbound)</h3>
+		</h2>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col01">
+					<label> Nombre, LG</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" id="nlg">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>SV Nombre y FdN</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" id="svc"  />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>BV</label>
+				</div>
+				<div class="col02">
+					<input type="number" step="0.01" id="bv" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>DA</label>
+				</div>
+				<div class="col02">
+					<input type="number" id="da" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>ACH HOY</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" id="ach_h" >
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>PP</label>
+				</div>
+				<div class="col02">
+					<container>
+						<input type="date" id="fecha_pp"  /><br>
+						<input type="number" id="cantidad_pp"  step="0.01" placeholder="Cantidad" /><br>
+						<input type="text" id="lugar_pp" placeholder="Lugar"  />
+					</container>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>RA</label>
+				</div>
+				<div class="col02">
+					<input type="text" name="razon_atraso" id="ra"  />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>BT</label>
+				</div>
+				<div class="col02">
+					<input type="number" id="bt" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>PFP</label>
+				</div>
+				<div class="col02">
+					<input type="date" id="pfp" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>SEC</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" id="sec"  />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>RPR*</label>
+				</div>
+				<div class="col02">
+					<input type="text" id="rpr" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>PFR*</label>
+				</div>
+				<div class="col02">
+					<input type="date" id="pfr"  />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>REC</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" name="recapitulacion"  >
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>SVDyT</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" name="mantenimiento_cuenta"  />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>Ayuda</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" name="ayuda_adicional"  />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>Agradece</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" name="agradecimiento"  />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>OP</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" name="oportun_fin"  />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>Notas</label>
+				</div>
+				<div class="col02">
+					<textarea id="notas"  ></textarea>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col02">
+					<container>
+						<button onclick="copiar()">Copiar</button>
+						<button onclick="restablecer()">Restablecer</button>
+					</container>
+				</div>
+			</div>
+		</div>
+<center><textarea id="texto_a_copiar"  ></textarea></center>		
+</body>
+	
+	<script>		
+	
+	function copiar() {
+	
+			var nlgBox = document.getElementById("nlg");
+			if (nlgBox.checked == true){
+				var nlg = "Nombre, LG ( Ok )" + "\n";
+			}
+			else {
+				var nlg = "";
+			}
+
+			var svcBox = document.getElementById("svc");
+			if (svcBox.checked == true){
+				var svc = "SV Nombre y FdN ( Ok )" + "\n";
+			}
+			else {
+				var svc = "";
+			}
+
+			var ach_hBox = document.getElementById("ach_h");
+			if (ach_hBox.checked == true){
+				var ach_h = "ACH HOY ( Ok )" + "\n";
+			}
+			else {
+				var ach_h = "";
+			}
+
+			var secBox = document.getElementById("sec");
+			if (secBox.checked == true){
+				var sec ="SEC ( Ok )" + "\n"; 
+			}
+			else {
+				var sec = "";
+			}
+
+
+			if ( document.getElementById("bv").value != "" ){
+				var bv ="BV: ($" + document.getElementById("bv").value + ")" + "\n";
+			}
+			else{
+				var bv = "";
+			}
+			
+			var da = "\n" + document.getElementById("da").value;
+			var fecha_pp = "\n" + document.getElementById("fecha_pp").value;
+			var cantidad_pp = "\n" + document.getElementById("cantidad_pp").value;
+			var lugar_pp = "\n" + document.getElementById("lugar_pp").value;
+			var ra = "\n" + document.getElementById("ra").value;
+			var bt = "\n" + document.getElementById("bt").value;
+			var pfp = "\n" + document.getElementById("pfp").value;
+			var notas = "\n" + document.getElementById("notas").value;
+			 
+		document.getElementById("texto_a_copiar").value =
+			nlg
+			+ svc
+			+ bv
+			+ da
+			+ ach_h
+			+ fecha_pp
+			+ cantidad_pp
+			+ lugar_pp
+			+ ra
+			+ bt
+			+ pfp
+			+ notas
+		;
+}
+	</script>
+</html>
