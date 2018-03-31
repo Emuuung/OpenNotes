@@ -50,19 +50,20 @@
 			.container {
 				border-radius: 5px;
 				background-color: #f2f2f2;
-				padding: 10px;
+				padding: 5px;
 			}
 
 			.col01 {
 				float: left;
-				width: 25%;
+				width: 30%;
 				text-align: right;
-				padding-right: 6;
+				padding-right: 5;
+				padding-left: 0;
 			}
 
 			.col02 {
 				float: left;
-				width: 75%;
+				width: 70%;
 			}
 
 			/* Clear floats after the columns */
@@ -84,16 +85,16 @@
 					<label> Nombre, LG</label>
 				</div>
 				<div class="col02">
-					<input type="checkbox" id="nlg">
+					<input type="checkbox" id="nlg" checked>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col01">
-					<label>SV Nombre y FdN</label>
+					<label>SVNyFdN</label>
 				</div>
 				<div class="col02">
-					<input type="checkbox" id="svc"  />
+					<input type="checkbox" id="svc" checked />
 				</div>
 			</div>
 			
@@ -120,7 +121,7 @@
 					<label>ACH HOY</label>
 				</div>
 				<div class="col02">
-					<input type="checkbox" id="ach_h" >
+					<input type="checkbox" id="ach_h" checked >
 				</div>
 			</div>
 			
@@ -145,34 +146,7 @@
 					<input type="text" name="razon_atraso" id="ra"  />
 				</div>
 			</div>
-			
-			<div class="row">
-				<div class="col01">
-					<label>BT</label>
-				</div>
-				<div class="col02">
-					<input type="number" id="bt" />
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col01">
-					<label>PFP</label>
-				</div>
-				<div class="col02">
-					<input type="date" id="pfp" />
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col01">
-					<label>SEC</label>
-				</div>
-				<div class="col02">
-					<input type="checkbox" id="sec"  />
-				</div>
-			</div>
-			
+
 			<div class="row">
 				<div class="col01">
 					<label>RPR*</label>
@@ -184,6 +158,24 @@
 			
 			<div class="row">
 				<div class="col01">
+					<label>BT</label>
+				</div>
+				<div class="col02">
+					<input type="number" step="0.01" id="bt" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col01">
+					<label>PFP</label>
+				</div>
+				<div class="col02">
+					<input type="date" id="pfp" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col01">
 					<label>PFR*</label>
 				</div>
 				<div class="col02">
@@ -193,10 +185,10 @@
 			
 			<div class="row">
 				<div class="col01">
-					<label>REC</label>
+					<label>SEC</label>
 				</div>
 				<div class="col02">
-					<input type="checkbox" name="recapitulacion"  >
+					<input type="checkbox" id="sec" checked />
 				</div>
 			</div>
 			
@@ -205,7 +197,16 @@
 					<label>SVDyT</label>
 				</div>
 				<div class="col02">
-					<input type="checkbox" name="mantenimiento_cuenta"  />
+					<input type="checkbox" id="svdyt" checked />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col01">
+					<label>REC</label>
+				</div>
+				<div class="col02">
+					<input type="checkbox" id="rec" checked >
 				</div>
 			</div>
 			
@@ -214,16 +215,16 @@
 					<label>Ayuda</label>
 				</div>
 				<div class="col02">
-					<input type="checkbox" name="ayuda_adicional"  />
+					<input type="checkbox" id="ayuda_adicional" checked />
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="col01">
 					<label>Agradece</label>
 				</div>
 				<div class="col02">
-					<input type="checkbox" name="agradecimiento"  />
+					<input type="checkbox" id="agradece" checked />
 				</div>
 			</div>
 			
@@ -232,7 +233,7 @@
 					<label>OP</label>
 				</div>
 				<div class="col02">
-					<input type="checkbox" name="oportun_fin"  />
+					<input type="checkbox" id="oportun_fin" checked />
 				</div>
 			</div>
 			
@@ -246,10 +247,13 @@
 			</div>
 			
 			<div class="row">
+				<div class="col01">
+					<label></label>
+				</div>
 				<div class="col02">
 					<container>
 						<button onclick="copiar()">Copiar</button>
-						<button onclick="restablecer()">Restablecer</button>
+						<button hidden onclick="restablecer()">Restablecer</button>
 					</container>
 				</div>
 			</div>
@@ -257,13 +261,14 @@
 <center><textarea id="texto_a_copiar"  ></textarea></center>		
 </body>
 	
-	<script>		
+	<script>
+
 	
 	function copiar() {
 	
 			var nlgBox = document.getElementById("nlg");
 			if (nlgBox.checked == true){
-				var nlg = "Nombre, LG ( Ok )" + "\n";
+				var nlg = "Nombre, LG: ( Ok )";
 			}
 			else {
 				var nlg = "";
@@ -271,7 +276,7 @@
 
 			var svcBox = document.getElementById("svc");
 			if (svcBox.checked == true){
-				var svc = "SV Nombre y FdN ( Ok )" + "\n";
+				var svc = "\n" + "SV Nombre y FdN: ( Ok )";
 			}
 			else {
 				var svc = "";
@@ -279,7 +284,7 @@
 
 			var ach_hBox = document.getElementById("ach_h");
 			if (ach_hBox.checked == true){
-				var ach_h = "ACH HOY ( Ok )" + "\n";
+				var ach_h = "\n" + "ACH HOY: ( Ok )";
 			}
 			else {
 				var ach_h = "";
@@ -294,21 +299,135 @@
 			}
 
 
+
 			if ( document.getElementById("bv").value != "" ){
-				var bv ="BV: ($" + document.getElementById("bv").value + ")" + "\n";
+				var bv = "\n" + "BV: ($" + document.getElementById("bv").value + ")";
 			}
 			else{
 				var bv = "";
 			}
+
+			if ( document.getElementById("da").value != "" ){
+				var da = "\n" + "DA: (" + document.getElementById("da").value + ")";
+			}
+			else{
+				var da = "";
+			}
+
+			if ( document.getElementById("fecha_pp").value != "" ){
+				var fecha_pp = "\n" + "PP: Fecha (" + document.getElementById("fecha_pp").value + ")";
+			}
+			else{
+				var fecha_pp = "";
+			}
+
+			if ( document.getElementById("cantidad_pp").value != "" ){
+				var cantidad_pp = "\n" + "Cantidad ($" + document.getElementById("cantidad_pp").value + ")";
+			}
+			else{
+				var cantidad_pp = "";
+			}
+
+			if ( document.getElementById("lugar_pp").value != "" ){
+				var lugar_pp = "\n" + "Lugar (" + document.getElementById("lugar_pp").value + ")";
+			}
+			else{
+				var lugar_pp = "";
+			}
 			
-			var da = "\n" + document.getElementById("da").value;
-			var fecha_pp = "\n" + document.getElementById("fecha_pp").value;
-			var cantidad_pp = "\n" + document.getElementById("cantidad_pp").value;
-			var lugar_pp = "\n" + document.getElementById("lugar_pp").value;
-			var ra = "\n" + document.getElementById("ra").value;
-			var bt = "\n" + document.getElementById("bt").value;
-			var pfp = "\n" + document.getElementById("pfp").value;
-			var notas = "\n" + document.getElementById("notas").value;
+			if ( document.getElementById("ra").value != "" ){
+				var ra = "\n" + "RA: (" + document.getElementById("ra").value + ")";
+			}
+			else{
+				var ra = "";
+			}
+
+			if ( document.getElementById("rpr").value != "" ){
+				var rpr = "\n" + "RPR*: (" + document.getElementById("rpr").value + ")";
+			}
+			else{
+				var rpr = "";
+			}
+
+			if ( document.getElementById("bt").value != "" ){
+				var bt = "\n" + "BT: ($" + document.getElementById("bt").value + ")";
+			}
+			else{
+				var bt = "";
+			}
+			
+			if ( document.getElementById("pfp").value != "" ){
+				var pfp = "\n" + "PFP: (" + document.getElementById("pfp").value + ")";
+			}
+			else{
+				var pfp = "";
+			}
+
+			if ( document.getElementById("pfr").value != "" ){
+				var pfr = "\n" + "PFR*: (" + document.getElementById("pfr").value + ")";
+			}
+			else{
+				var pfr = "";
+			}
+
+			var secBox = document.getElementById("sec");
+			if (secBox.checked == true){
+				var sec = "\n" + "SEC: ( Ok )";
+			}
+			else {
+				var sec = "";
+			}
+
+			var svdytBox = document.getElementById("svdyt");
+			if (svdytBox.checked == true){
+				var svdyt = "\n" + "SVDyT: ( Ok )";
+			}
+			else {
+				var svdyt = "";
+			}
+
+			var recBox = document.getElementById("rec");
+			if (recBox.checked == true){
+				var rec = "\n" + "REC: ( Ok )";
+			}
+			else {
+				var rec = "";
+			}
+
+			var ayudaBox = document.getElementById("ayuda_adicional");
+			if (ayudaBox.checked == true){
+				var ayuda_adicional = "\n" + "Ayuda: ( Ok )";
+			}
+			else {
+				var ayuda_adicional = "";
+			}
+
+
+			var agradeceBox = document.getElementById("agradece");
+			if (agradeceBox.checked == true){
+				var agradece = "\n" + "Agradece: ( Ok )";
+			}
+			else {
+				var agradece = "";
+			}
+
+			var OpBox = document.getElementById("oportun_fin");
+			if (OpBox.checked == true){
+				var oportun_fin = "\n" + "Op: ( Ok )";
+			}
+			else {
+				var oportun_fin = "";
+			}
+
+			if ( document.getElementById("notas").value != "" ){
+				var notas = "\n" + "Notas: (" + document.getElementById("notas").value + ")";
+			}
+			else{
+				var notas = "";
+			}
+			
+			
+			
 			 
 		document.getElementById("texto_a_copiar").value =
 			nlg
@@ -320,8 +439,15 @@
 			+ cantidad_pp
 			+ lugar_pp
 			+ ra
+			+ rpr
 			+ bt
 			+ pfp
+			+ pfr
+			+ sec
+			+ svdyt
+			+ ayuda_adicional
+			+ agradece
+			+ oportun_fin
 			+ notas
 		;
 }
